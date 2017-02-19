@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record model="ir.actions.act_window" id="client_list_action">
+        <field name="name">client</field>
+        <field name="res_model">vet.client</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de Clientes">
+                <field name="name" />
+                <field name="pet_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+     <record model="ir.actions.act_window" id="pet_list_action">
+        <field name="name">pet</field>
+        <field name="res_model">vet.pet</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="arch" type="xml">
+            <tree string="Listado de Mascotas">
+                <field name="name" />
+                <field name="client_id"/>
+            </tree>
+        </field>
+    </record>
+   
+    
+
+    <menuitem name="Veterinario" id="vet_menu_root"/>
+    
+    <menuitem name="Clientes" id="vet_menu_clients" parent="vet_menu_root"/>
+    <menuitem name="Mascotas" id="vet_menu_pets" parent="vet_menu_root"/>
+   
+    
+    
+    <menuitem name="Listado de clientes" id="vet_list_clients" parent="vet_menu_clients" action="client_list_action"/>
+    
+    <menuitem name="Listado de mascotas" id="vet_list_pets" parent="vet_menu_pets" action="pet_list_action"/>
+   
+       </data>
+</openerp>
